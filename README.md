@@ -1,7 +1,6 @@
 ╔═══════════════════════════════════════════════════════════╗
-║ 🌍 PENDAFTARAN MAHASISWA ASING UNIVERSITAS GUNADARMA 🎓 ║
-║ ║
-║ Sistem Registrasi Internasional Modern & Komprehensif ║
+🌍 PENDAFTARAN MAHASISWA ASING UNIVERSITAS GUNADARMA 🎓
+Sistem Registrasi Internasional Modern & Komprehensif
 ╚═══════════════════════════════════════════════════════════╝
 
 [![Java Version](https://img.shields.io/badge/Java-17-blue?style=flat-square&logo=java)](https://www.java.com)
@@ -176,7 +175,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <div align="center">
     <sub>Built with ❤️ by Universitas Gunadarma Team</sub>
 </div>
-
 ## 🧪 Testing and Code Coverage
 
 ### Testing Strategy
