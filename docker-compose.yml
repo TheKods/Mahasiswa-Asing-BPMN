@@ -11,13 +11,25 @@ services:
     environment:
       - SPRING_PROFILES_ACTIVE=development
       - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://postgres:5432/mahasiswa_asing_db
+      - SPRING_DATASOURCE_USERNAME=mahasiswa_user
+      - SPRING_DATASOURCE_PASSWORD=rahasia_database
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+      - CAMUNDA_CLIENT_ZEEBE_GRPC_ADDRESS=http://zeebe:26500
+      - SPRING_MAIL_HOST=${SPRING_MAIL_HOST:-smtp.gmail.com}
+      - SPRING_MAIL_PORT=${SPRING_MAIL_PORT:-587}
+      - SPRING_MAIL_USERNAME=${SPRING_MAIL_USERNAME:-your@gmail.com}
+      - SPRING_MAIL_PASSWORD=${SPRING_MAIL_PASSWORD:-your_app_password}
+      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH=${SPRING_MAIL_PROPERTIES_MAIL_SMTP_AUTH:-true}
+      - SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE=${SPRING_MAIL_PROPERTIES_MAIL_SMTP_STARTTLS_ENABLE:-true}
     volumes:
       - ./storage:/app/storage
     depends_on:
       - postgres
-      - zeebe # Change 'camunda' to 'zeebe'
+      - zeebe
     networks:
       - mahasiswa-asing-network
+      - camunda-platform
 
   # Database PostgreSQL
   postgres:
@@ -34,9 +46,9 @@ services:
     networks:
       - mahasiswa-asing-network
 
-  # Camunda Zeebe
+  # Camunda Zeebe (Updated to 8.7.7)
   zeebe:
-    image: camunda/zeebe:8.7.0
+    image: camunda/zeebe:8.7.7
     container_name: mahasiswa-asing-zeebe
     ports:
       - "26500:26500"
@@ -68,9 +80,9 @@ services:
     depends_on:
       - elasticsearch
 
-  # Camunda Operate
+  # Camunda Operate (Updated to 8.7.7)
   operate:
-    image: camunda/operate:8.7.0
+    image: camunda/operate:8.7.7
     container_name: mahasiswa-asing-operate
     ports:
       - "8081:8080"
@@ -98,9 +110,9 @@ services:
       - zeebe
       - elasticsearch
 
-  # Camunda Tasklist
+  # Camunda Tasklist (Updated to 8.7.7)
   tasklist:
-    image: camunda/tasklist:8.7.0
+    image: camunda/tasklist:8.7.7
     container_name: mahasiswa-asing-tasklist
     ports:
       - "8082:8080"
@@ -129,9 +141,9 @@ services:
       - zeebe
       - elasticsearch
 
-  # Camunda Connectors
+  # Camunda Connectors (Updated to 8.7.5)
   connectors:
-    image: camunda/connectors-bundle:8.7.0
+    image: camunda/connectors-bundle:8.7.5
     container_name: mahasiswa-asing-connectors
     ports:
       - "8085:8080"
@@ -156,9 +168,9 @@ services:
       - zeebe
       - operate
 
-  # Elasticsearch
+  # Elasticsearch (Updated to 8.17.6)
   elasticsearch:
-    image: docker.elastic.co/elasticsearch/elasticsearch:8.5.0
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.17.6
     container_name: mahasiswa-asing-elasticsearch
     ports:
       - "9200:9200"
