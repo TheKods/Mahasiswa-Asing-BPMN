@@ -261,6 +261,7 @@
       <bpmn:sequenceFlow id="Flow_0za04vz" sourceRef="Activity_0gi2gr7" targetRef="Activity_06z8x13" />
       <bpmn:serviceTask id="Activity_06z8x13" name="Data dikirm ke database">
         <bpmn:extensionElements>
+          <zeebe:taskDefinition type="Data_dikirim_ke_database" />
         </bpmn:extensionElements>
         <bpmn:incoming>Flow_0za04vz</bpmn:incoming>
         <bpmn:outgoing>Flow_1dr57bi</bpmn:outgoing>
@@ -272,6 +273,7 @@
       <bpmn:dataStoreReference id="DataStoreReference_065a0lo" />
       <bpmn:serviceTask id="Activity_0ayz056" name="Pengecekan akun admin KUI">
         <bpmn:extensionElements>
+          <zeebe:taskDefinition type="Pengecekan_akun_admin_KUI" />
         </bpmn:extensionElements>
         <bpmn:incoming>Flow_0aoijwl</bpmn:incoming>
         <bpmn:outgoing>Flow_1dlsej2</bpmn:outgoing>
