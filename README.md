@@ -1,7 +1,6 @@
-╔═══════════════════════════════════════════════════════════╗
 🌍 PENDAFTARAN MAHASISWA ASING UNIVERSITAS GUNADARMA 🎓
+
 Sistem Registrasi Internasional Modern & Komprehensif
-╚═══════════════════════════════════════════════════════════╝
 
 [![Java Version](https://img.shields.io/badge/Java-17-blue?style=flat-square&logo=java)](https://www.java.com)
 [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.3-green?style=flat-square&logo=spring)](https://spring.io/projects/spring-boot)
