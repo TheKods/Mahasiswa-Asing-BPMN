@@ -1,3 +1,15 @@
+╔═══════════════════════════════════════════════════════════╗
+║ 🌍 PENDAFTARAN MAHASISWA ASING UNIVERSITAS GUNADARMA 🎓 ║
+║ ║
+║ Sistem Registrasi Internasional Modern & Komprehensif ║
+╚═══════════════════════════════════════════════════════════╝
+
+[![Java Version](https://img.shields.io/badge/Java-17-blue?style=flat-square&logo=java)](https://www.java.com)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.3-green?style=flat-square&logo=spring)](https://spring.io/projects/spring-boot)
+[![Camunda](https://img.shields.io/badge/Camunda%20Zeebe-8.7.0-orange?style=flat-square&logo=camunda)](https://camunda.com/)
+[![Contributors](https://img.shields.io/github/contributors/TheKods/Mahasiswa-Asing-BPMN?style=flat-square)](https://github.com/TheKods/Mahasiswa-Asing-BPMN/graphs/contributors)
+[![Last Commit](https://img.shields.io/github/last-commit/TheKods/Mahasiswa-Asing-BPMN?style=flat-square)](https://github.com/TheKods/Mahasiswa-Asing-BPMN/commits/main)
+
 # Pendaftaran Mahasiswa Asing Universitas Gunadarma
 
 <div align="center">
@@ -13,7 +25,9 @@
 [![Maven](https://img.shields.io/badge/Maven-C71A36?style=for-the-badge&logo=apache-maven)](https://maven.apache.org/)
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github)](https://github.com)
 
-[![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)](https://github.com/your-username/pendaftaran-mahasiswa-asing)
+[![Build Status](https://github.com/TheKods/Mahasiswa-Asing-BPMN/actions/workflows/ci.yml/badge.svg)](https://github.com/TheKods/Mahasiswa-Asing-BPMN/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/TheKods/Mahasiswa-Asing-BPMN/branch/main/graph/badge.svg)](https://codecov.io/gh/TheKods/Mahasiswa-Asing-BPMN)
+
 [![License](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat-square)](LICENSE)
 [![Version](https://img.shields.io/badge/Version-1.0.0-blue?style=flat-square)](https://github.com/your-username/pendaftaran-mahasiswa-asing/releases)
 
@@ -222,3 +236,70 @@ Our CI pipeline automatically:
 - Performs security scans
 
 ---
+
+## 🏗 Detailed System Architecture
+
+### 1. Komponen Utama
+
+- **Frontend**: Antarmuka pengguna untuk pendaftaran mahasiswa asing
+- **Backend**: Logika bisnis dan manajemen alur kerja
+- **Basis Data**: Penyimpanan data mahasiswa dan proses pendaftaran
+- **Camunda Zeebe**: Mesin orkestrasi alur kerja
+
+### 2. Alur Proses Pendaftaran
+
+```mermaid
+graph TD
+    A[Mahasiswa Asing] --> B[Formulir Pendaftaran]
+    B --> C{Validasi Data}
+    C -->|Valid| D[Pemrosesan Dokumen]
+    C -->|Tidak Valid| E[Pengembalian Formulir]
+    D --> F[Wawancara Online]
+    F --> G{Keputusan Penerimaan}
+    G -->|Diterima| H[Konfirmasi Pendaftaran]
+    G -->|Ditolak| I[Notifikasi Penolakan]
+```
+
+### 3. Arsitektur Teknis
+
+```mermaid
+graph LR
+    A[Klien Web] --> B[Spring Boot API]
+    B --> C[Spring Security]
+    B --> D[Camunda Zeebe]
+    D --> E[Basis Data]
+    C --> F[Manajemen Otentikasi]
+    E --> G[Penyimpanan Data Mahasiswa]
+```
+
+### 4. Integrasi dan Aliran Data
+
+- Formulir pendaftaran dikirim melalui antarmuka web
+- Data divalidasi oleh backend Spring Boot
+- Proses dialirkan melalui Camunda Zeebe
+- Keputusan dan status disimpan dalam basis data
+- Notifikasi dikirim melalui sistem email
+
+### 5. Skalabilitas dan Perluasan
+
+- Arsitektur microservices
+- Dukungan multi-bahasa
+- Dapat dikembangkan untuk berbagai alur pendaftaran
+
+## 📸 Tangkapan Layar Aplikasi
+
+> **Catatan**: Tangkapan layar akan segera ditambahkan
+
+### Antarmuka Utama
+
+- Halaman Login
+- Formulir Pendaftaran
+- Dashboard Mahasiswa
+
+### Alur Proses
+
+- Registrasi
+- Validasi Dokumen
+- Konfirmasi Penerimaan
+
+_Tangkapan layar aktual akan diperbarui setelah pengembangan antarmuka pengguna selesai._

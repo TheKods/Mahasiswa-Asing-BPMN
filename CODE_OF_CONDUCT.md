@@ -32,7 +32,7 @@ Kode etik ini berlaku baik di dalam ruang proyek maupun di ruang publik ketika s
 
 ## Penegakan
 
-Kasus perilaku kasar, pelecehan, atau tidak dapat diterima dapat dilaporkan dengan menghubungi tim proyek di [EMAIL KONTAK]. Semua keluhan akan ditinjau dan diselidiki dan akan menghasilkan respons yang dianggap perlu dan sesuai dengan keadaan. Tim proyek berkewajiban menjaga kerahasiaan pelapor.
+Kasus perilaku kasar, pelecehan, atau tidak dapat diterima dapat dilaporkan dengan menghubungi pengembang proyek di rafihermawan06@gmail.com. Semua keluhan akan ditinjau dan diselidiki dan akan menghasilkan respons yang dianggap perlu dan sesuai dengan keadaan. Pengembang proyek berkewajiban menjaga kerahasiaan pelapor.
 
 ## Atribusi
 
