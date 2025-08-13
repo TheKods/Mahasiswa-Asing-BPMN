@@ -1,0 +1,121 @@
+# Compiled source files
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# Package files
+*.jar
+*.war
+*.ear
+*.nar
+*.zip
+*.tar.gz
+*.rar
+
+# Logs and databases
+*.log
+*.log.*
+logs/
+log/
+*.sqlite
+*.db
+*.sqlite3
+
+# IDE-specific files
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+out/
+
+# Eclipse
+.classpath
+.project
+.settings/
+bin/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# NetBeans
+nbproject/
+nb-configuration.xml
+
+# Build and dependency directories
+target/
+build/
+dist/
+node_modules/
+.gradle/
+gradle/
+dependency-reduced-pom.xml
+
+# Temporary and backup files
+*.bak
+*.gho
+*.ori
+*.orig
+*.tmp
+*.swp
+*.swo
+*~
+.~lock.*#
+
+# Operating System files
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+
+# Linux
+.directory
+.Trash-*
+
+# Environment and configuration files
+*.env
+*.env.local
+*.env.development.local
+*.env.test.local
+*.env.production.local
+application-local.yml
+application-dev.yml
+secrets.properties
+config/local.properties
+
+# Development and runtime files
+.springBeans
+hs_err_pid*
+zeebe_work/
+generated/
+.generated/
+
+# Jupyter and Python
+.ipynb_checkpoints/
+
+# Frontend build artifacts
+.next/
+.nuxt/
+.svelte-kit/
+
+# Security and sensitive files
+*.pem
+*.key
+*.crt
+
+# Miscellaneous
+.history/
+.cache/ 

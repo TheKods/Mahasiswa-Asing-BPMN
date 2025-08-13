@@ -1,0 +1,109 @@
+{
+  "components": [
+    {
+      "text": "# Cek Data Calon mahasiswa",
+      "label": "Verifikasi Data Pendaftaran",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_1c02mjo"
+      }
+    },
+    {
+      "label": "Tab Dokumen",
+      "values": [
+        {
+          "label": "Identitas Mahasiswa",
+          "value": "student-identity"
+        },
+        {
+          "label": "Dokumen Pendidikan",
+          "value": "educational-documents"
+        },
+        {
+          "label": "Dokumen Imigrasi",
+          "value": "immigration-documents"
+        }
+      ],
+      "type": "select",
+      "id": "documentTabs",
+      "properties": {
+        "isNavigation": true
+      },
+      "key": "select_9tnd4",
+      "layout": {
+        "row": "Row_1hwqpxi"
+      }
+    },
+    {
+      "label": "Pilih Dokumen",
+      "type": "select",
+      "id": "selectedDocument",
+      "key": "selectedDocumentId",
+      "validate": {
+        "required": false
+      },
+      "valuesKey": "availableDocuments",
+      "layout": {
+        "row": "Row_1cuo3bi"
+      }
+    },
+    {
+      "label": "Document preview",
+      "type": "documentPreview",
+      "layout": {
+        "row": "Row_07zv0db",
+        "columns": null
+      },
+      "id": "Field_0w6ulje",
+      "dataSource": "=selectedDocumentId"
+    },
+    {
+      "label": "Validasi Dokumen",
+      "values": [
+        {
+          "label": "Terima",
+          "value": "true"
+        },
+        {
+          "label": "Tolak",
+          "value": "false"
+        }
+      ],
+      "type": "select",
+      "layout": {
+        "row": "Row_0iry5v4",
+        "columns": null
+      },
+      "id": "Field_0a3fsw1",
+      "key": "verifikasiData",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Komentar",
+      "type": "textfield",
+      "id": "komentar",
+      "key": "komentar",
+      "properties": {
+        "multiline": true
+      },
+      "layout": {
+        "row": "Row_0yxtqqi"
+      }
+    }
+  ],
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18,
+  "id": "form-pemeriksaan-pendaftaran",
+  "type": "default"
+}

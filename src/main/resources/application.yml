@@ -1,0 +1,82 @@
+# ===================================================
+# APLIKASI & SERVER
+# ===================================================
+server:
+  port: 8080
+  address: 0.0.0.0
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: pendaftaran-mahasiswa-asing
+
+  # ===================================================
+  # KONFIGURASI FILE UPLOAD
+  # ===================================================
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  # ===================================================
+  # SPRING SECURITY & DEVTOOLS
+  # ===================================================
+  security:
+    filter:
+      order: 10
+
+# ===================================================
+# CAMUNDA 8 CLIENT
+# ===================================================
+camunda:
+  client:
+    mode: selfManaged
+    zeebe:
+      enabled: true
+      grpc-address: http://localhost:26500
+      rest-address: http://localhost:8088
+      prefer-rest-over-grpc: false
+      defaults:
+        auto-complete: true
+
+# ===================================================
+# KONFIGURASI KUSTOM (STORAGE DIRECTORY)
+# ===================================================
+storage:
+  base-dir: ./storage
+  upload-dir: ./storage/uploads
+  temp-dir: ./storage/temp
+  archive-dir: ./storage/archive
+  logs-dir: ./storage/logs
+
+# ===================================================
+# LOGGING
+# ===================================================
+logging:
+  level:
+    "[org.hibernate.SQL]": DEBUG
+    "[org.hibernate.type.descriptor.sql.BasicBinder]": TRACE
+    "[io.camunda.zeebe]": INFO
+    "[io.camunda.zeebe.spring.client.configuration]": ERROR
+    "[io.camunda.zeebe.client.impl.ZeebeCallCredentials]": ERROR
+    "[org.hibernate.orm.deprecation]": ERROR
+
+# ===================================================
+# ACTUATOR
+# ===================================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# ===================================================
+# APLIKASI (CUSTOM)
+# ===================================================
+app:
+  autostart:
+    enabled: false

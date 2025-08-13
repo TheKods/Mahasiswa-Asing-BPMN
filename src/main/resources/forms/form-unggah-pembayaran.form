@@ -1,0 +1,40 @@
+{
+  "components": [
+    {
+      "text": "# Unggah Bukti Pembayaran",
+      "label": "Unggah Bukti Pembayaran",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_1onhhsu"
+      }
+    },
+    {
+      "label": "Bukti Pembayaran",
+      "type": "filepicker",
+      "id": "proofOfPayment",
+      "validate": {
+        "required": true
+      },
+      "properties": {},
+      "key": "filepicker_8tyk5a",
+      "multiple": true,
+      "accept": ".pdf",
+      "layout": {
+        "row": "Row_1pevzje"
+      }
+    }
+  ],
+  "type": "default",
+  "id": "form-unggah-pembayaran",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18
+}

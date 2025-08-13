@@ -1,0 +1,113 @@
+{
+  "components": [
+    {
+      "text": "# Dokumen Imigrasi",
+      "label": "Dokumen Imigrasi",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_06cefax"
+      }
+    },
+    {
+      "label": "Tab Dokumen",
+      "values": [
+        {
+          "label": "Identitas Mahasiswa",
+          "value": "student-identity"
+        },
+        {
+          "label": "Dokumen Pendidikan",
+          "value": "educational-documents"
+        },
+        {
+          "label": "Dokumen Imigrasi",
+          "value": "immigration-documents",
+          "selected": true
+        }
+      ],
+      "type": "select",
+      "id": "documentTabs",
+      "properties": {
+        "isNavigation": true
+      },
+      "key": "select_a3s4oo",
+      "layout": {
+        "row": "Row_1662jee"
+      }
+    },
+    {
+      "label": "Paspor",
+      "type": "filepicker",
+      "id": "passport",
+      "validate": {
+        "required": true
+      },
+      "properties": {
+        "allowedFileTypes": ".pdf"
+      },
+      "key": "filepicker_e0gcg",
+      "layout": {
+        "row": "Row_1l149hb"
+      }
+    },
+    {
+      "label": "Nomor Paspor",
+      "type": "textfield",
+      "id": "passportNumber",
+      "validate": {
+        "required": true
+      },
+      "key": "textfield_rg6ebb",
+      "layout": {
+        "row": "Row_1kugzhi"
+      }
+    },
+    {
+      "label": "Tanggal Penerbitan Paspor",
+      "type": "textfield",
+      "id": "passportIssueDate",
+      "description": "Pilih tanggal penerbitan paspor",
+      "validate": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "properties": {
+        "placeholder": "YYYY-MM-DD"
+      },
+      "key": "textfield_oww6n9",
+      "layout": {
+        "row": "Row_0dj4qmu"
+      }
+    },
+    {
+      "label": "Tanggal Berakhir Paspor",
+      "type": "textfield",
+      "id": "passportExpiryDate",
+      "description": "Pilih tanggal berakhir paspor",
+      "validate": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+      },
+      "properties": {
+        "placeholder": "YYYY-MM-DD"
+      },
+      "key": "textfield_7kylaz",
+      "layout": {
+        "row": "Row_17lavd9"
+      }
+    }
+  ],
+  "type": "default",
+  "id": "form-dokumen-imigrasi",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18
+}

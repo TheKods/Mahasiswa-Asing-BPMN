@@ -1,0 +1,89 @@
+{
+  "components": [
+    {
+      "text": "# Verifikasi Pembayaran",
+      "label": "Verifikasi Data Pembayaran",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_1836oge"
+      }
+    },
+    {
+      "label": "Pilih Bukti Pembayaran",
+      "type": "select",
+      "id": "selectedPayment",
+      "key": "selectedPaymentId",
+      "validate": {
+        "required": false
+      },
+      "valuesKey": "availablePayments",
+      "layout": {
+        "row": "Row_152vur9"
+      }
+    },
+    {
+      "label": "Document preview",
+      "type": "documentPreview",
+      "layout": {
+        "row": "Row_1gzkmhw",
+        "columns": null
+      },
+      "id": "Field_1qm0g96",
+      "dataSource": "=selectedPaymentId"
+    },
+    {
+      "label": "verifikasi Pembayaran",
+      "values": [
+        {
+          "label": "Valid",
+          "value": "true"
+        },
+        {
+          "label": "Tidak Valid",
+          "value": "false"
+        }
+      ],
+      "type": "select",
+      "layout": {
+        "row": "Row_03hbiwc",
+        "columns": null
+      },
+      "id": "Field_0p8yy5l",
+      "key": "verifikasiPembayaran",
+      "validate": {
+        "required": true
+      }
+    },
+    {
+      "label": "Komentar",
+      "type": "textarea",
+      "id": "comments",
+      "key": "textarea_u1rgra",
+      "layout": {
+        "row": "Row_1f4xyr6"
+      }
+    },
+    {
+      "label": "Perbarui Status",
+      "action": "submit",
+      "type": "button",
+      "id": "updateStatus",
+      "layout": {
+        "row": "Row_15roz8h"
+      }
+    }
+  ],
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18,
+  "id": "form-verifikasi-pembayaran",
+  "type": "default"
+}

@@ -1,0 +1,113 @@
+{
+  "components": [
+    {
+      "text": "# Dokumen Catatan Sipil dan Kepolisian",
+      "label": "Dokumen Catatan Sipil dan Kepolisian",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_0y6vyyg"
+      }
+    },
+    {
+      "label": "Tab Dokumen",
+      "values": [
+        {
+          "label": "Dokumen Catatan Sipil dan Kepolisian",
+          "value": "civil-police-documents",
+          "selected": true
+        }
+      ],
+      "type": "select",
+      "id": "documentTabs",
+      "properties": {
+        "isNavigation": true
+      },
+      "key": "select_sqhtxd",
+      "layout": {
+        "row": "Row_1co5du8"
+      }
+    },
+    {
+      "label": "Visa",
+      "type": "filepicker",
+      "id": "visa",
+      "validate": {
+        "required": true
+      },
+      "properties": {
+        "allowedFileTypes": ".pdf"
+      },
+      "key": "filepicker_wlit3e",
+      "layout": {
+        "row": "Row_0zd4f60"
+      }
+    },
+    {
+      "label": "KTP Orang Asing",
+      "type": "filepicker",
+      "id": "foreignerID",
+      "validate": {
+        "required": true
+      },
+      "properties": {
+        "allowedFileTypes": ".pdf"
+      },
+      "key": "filepicker_fhtaa",
+      "layout": {
+        "row": "Row_1yng8vd"
+      }
+    },
+    {
+      "label": "Surat Lapor Kelurahan",
+      "type": "filepicker",
+      "id": "neighborhoodLetter",
+      "validate": {
+        "required": true
+      },
+      "properties": {
+        "allowedFileTypes": ".pdf"
+      },
+      "key": "filepicker_p4e43w",
+      "layout": {
+        "row": "Row_03vfnlj"
+      }
+    },
+    {
+      "label": "STM/SKLT Kepolisian",
+      "type": "filepicker",
+      "id": "policeClearance",
+      "validate": {
+        "required": true
+      },
+      "properties": {
+        "allowedFileTypes": ".pdf"
+      },
+      "key": "filepicker_91t23",
+      "layout": {
+        "row": "Row_1gug5gm"
+      }
+    },
+    {
+      "label": "Simpan",
+      "action": "submit",
+      "type": "button",
+      "id": "save",
+      "layout": {
+        "row": "Row_09akr15"
+      }
+    }
+  ],
+  "type": "default",
+  "id": "form-dokumen-sipil-polisi",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18
+}

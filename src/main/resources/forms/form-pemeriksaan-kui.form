@@ -1,0 +1,131 @@
+{
+  "components": [
+    {
+      "text": "# Verifikasi Dokumen Calon Mahasiswa Internasional (KUI)",
+      "label": "Verifikasi Dokumen Calon Mahasiswa Internasional (KUI)",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_0ri1qlw"
+      }
+    },
+    {
+      "label": "Tab Dokumen",
+      "values": [
+        {
+          "label": "Identitas Mahasiswa",
+          "value": "student-identity"
+        },
+        {
+          "label": "Dokumen Pendidikan",
+          "value": "educational-documents"
+        },
+        {
+          "label": "Dokumen Imigrasi",
+          "value": "immigration-documents"
+        },
+        {
+          "label": "Verifikasi",
+          "value": "verification",
+          "selected": true
+        }
+      ],
+      "type": "select",
+      "id": "documentTabs",
+      "properties": {
+        "isNavigation": true
+      },
+      "key": "select_6fksv",
+      "layout": {
+        "row": "Row_1feuwjf"
+      }
+    },
+    {
+      "label": "Pilih Dokumen",
+      "type": "select",
+      "id": "selectedDocument",
+      "key": "selectedDocumentId",
+      "validate": {
+        "required": false
+      },
+      "valuesKey": "availableDocuments",
+      "layout": {
+        "row": "Row_1liqpa0"
+      },
+      "disabled": false,
+      "properties": {}
+    },
+    {
+      "label": "Status Verifikasi",
+      "values": [
+        {
+          "label": "Disetujui",
+          "value": "approved"
+        },
+        {
+          "label": "Ditolak",
+          "value": "rejected"
+        }
+      ],
+      "type": "select",
+      "id": "verificationStatus",
+      "validate": {
+        "required": true
+      },
+      "key": "select_jteel",
+      "layout": {
+        "row": "Row_14633lu"
+      }
+    },
+    {
+      "label": "Radio group",
+      "values": [
+        {
+          "label": "Mahasiswa Beasiswa",
+          "value": "true"
+        },
+        {
+          "label": "Mahasiswa Reguler",
+          "value": "false"
+        }
+      ],
+      "type": "radio",
+      "layout": {
+        "row": "Row_0wo3k0t",
+        "columns": null
+      },
+      "id": "Field_1h2ejys",
+      "key": "radio_87717j"
+    },
+    {
+      "label": "Komentar",
+      "type": "textarea",
+      "id": "comments",
+      "key": "textarea_qvje4",
+      "layout": {
+        "row": "Row_0weljz1"
+      }
+    },
+    {
+      "label": "Document preview",
+      "type": "documentPreview",
+      "layout": {
+        "row": "Row_0weljz2"
+      },
+      "id": "Field_preview",
+      "dataSource": "=selectedDocumentId"
+    }
+  ],
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18,
+  "id": "form-pemeriksaan-kui",
+  "type": "default"
+}

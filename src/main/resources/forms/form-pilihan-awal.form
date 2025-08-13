@@ -1,0 +1,53 @@
+{
+  "components": [
+    {
+      "text": "# sign in / sign up",
+      "label": "Silakan pilih tindakan yang ingin Anda lakukan",
+      "type": "text",
+      "id": "instructions",
+      "layout": {
+        "row": "Row_1exrodh"
+      }
+    },
+    {
+      "label": "Tindakan",
+      "values": [
+        {
+          "label": "Masuk (Sign In)",
+          "value": "signin"
+        },
+        {
+          "label": "Daftar (Sign Up)",
+          "value": "signup"
+        }
+      ],
+      "type": "select",
+      "id": "authAction",
+      "key": "authAction",
+      "validate": {
+        "required": true
+      },
+      "layout": {
+        "row": "Row_1szxsrt"
+      }
+    },
+    {
+      "label": "Lanjutkan",
+      "action": "submit",
+      "type": "button",
+      "id": "continueButton",
+      "layout": {
+        "row": "Row_19vcal3"
+      }
+    }
+  ],
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18,
+  "id": "form-pilihan-awal",
+  "type": "default"
+}

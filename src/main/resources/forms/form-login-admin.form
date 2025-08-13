@@ -1,0 +1,70 @@
+{
+  "components": [
+    {
+      "text": "# Login Admin",
+      "label": "Login Admin",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_1ktrt65"
+      }
+    },
+    {
+      "label": "Nama Pengguna",
+      "type": "textfield",
+      "id": "username",
+      "validate": {
+        "required": true
+      },
+      "key": "textfield_ufnrc",
+      "layout": {
+        "row": "Row_1b0c3ae"
+      }
+    },
+    {
+      "label": "Kata Sandi",
+      "type": "textfield",
+      "id": "password",
+      "properties": {
+        "inputType": "password"
+      },
+      "validate": {
+        "required": true
+      },
+      "key": "textfield_mee4js",
+      "layout": {
+        "row": "Row_0ofumsg"
+      }
+    },
+    {
+      "label": "Ingat saya",
+      "type": "checkbox",
+      "id": "rememberMe",
+      "key": "checkbox_m6ry6t",
+      "layout": {
+        "row": "Row_1mw6f94"
+      }
+    },
+    {
+      "label": "Masuk",
+      "action": "submit",
+      "type": "button",
+      "id": "login",
+      "layout": {
+        "row": "Row_1v2gey5"
+      }
+    }
+  ],
+  "type": "default",
+  "id": "form-login-admin",
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18
+}

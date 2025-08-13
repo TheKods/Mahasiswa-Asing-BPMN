@@ -1,0 +1,171 @@
+{
+  "components": [
+    {
+      "text": "# Pendaftaran Mahasiswa Asing",
+      "label": "Lengkapi informasi pendaftaran Anda",
+      "type": "text",
+      "id": "header",
+      "properties": {
+        "isHeader": true
+      },
+      "layout": {
+        "row": "Row_0glzakt"
+      }
+    },
+    {
+      "label": "Nama Lengkap (Sesuai Paspor)",
+      "type": "textfield",
+      "id": "fullName",
+      "validate": {
+        "required": true,
+        "errorMessage": "Silakan masukkan nama lengkap Anda sesuai paspor"
+      },
+      "key": "fullName",
+      "layout": {
+        "row": "Row_0pfydek"
+      }
+    },
+    {
+      "label": "Jenis Kelamin",
+      "values": [
+        {
+          "label": "Laki-laki",
+          "value": "male"
+        },
+        {
+          "label": "Perempuan",
+          "value": "female"
+        }
+      ],
+      "type": "radio",
+      "id": "gender",
+      "validate": {
+        "required": true,
+        "errorMessage": "Silakan pilih jenis kelamin Anda"
+      },
+      "key": "gender",
+      "layout": {
+        "row": "Row_132scjq"
+      }
+    },
+    {
+      "label": "Tanggal Lahir",
+      "type": "textfield",
+      "id": "dateOfBirth",
+      "validate": {
+        "required": true,
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+        "errorMessage": "Masukkan tanggal lahir dalam format YYYY-MM-DD (contoh: 1990-12-31)"
+      },
+      "key": "dateOfBirth",
+      "properties": {
+        "placeholder": "YYYY-MM-DD"
+      },
+      "layout": {
+        "row": "Row_0wiv748"
+      }
+    },
+    {
+      "label": "Kewarganegaraan",
+      "values": [
+        {
+          "label": "Pilih Kewarganegaraan",
+          "value": ""
+        },
+        {
+          "label": "Malaysia",
+          "value": "MY"
+        },
+        {
+          "label": "Singapura",
+          "value": "SG"
+        },
+        {
+          "label": "Thailand",
+          "value": "TH"
+        },
+        {
+          "label": "Lainnya",
+          "value": "OTHER"
+        }
+      ],
+      "type": "select",
+      "id": "nationality",
+      "validate": {
+        "required": true,
+        "errorMessage": "Silakan pilih kewarganegaraan Anda"
+      },
+      "key": "nationality",
+      "layout": {
+        "row": "Row_1141zv3"
+      }
+    },
+    {
+      "label": "Nomor Paspor",
+      "type": "textfield",
+      "id": "passportNumber",
+      "validate": {
+        "required": true,
+        "pattern": "^[A-Z0-9]{6,9}$",
+        "errorMessage": "Nomor paspor harus terdiri dari 6-9 huruf kapital atau angka"
+      },
+      "key": "passportNumber",
+      "layout": {
+        "row": "Row_0p26g1y"
+      }
+    },
+    {
+      "label": "Program Studi yang Diminati",
+      "values": [
+        {
+          "label": "Pilih Program Studi",
+          "value": ""
+        },
+        {
+          "label": "Teknik Informatika",
+          "value": "INFORMATIKA"
+        },
+        {
+          "label": "Sistem Informasi",
+          "value": "SISTEM_INFORMASI"
+        },
+        {
+          "label": "Manajemen",
+          "value": "MANAJEMEN"
+        }
+      ],
+      "type": "select",
+      "id": "interestedProgram",
+      "validate": {
+        "required": true,
+        "errorMessage": "Silakan pilih program studi yang Anda minati"
+      },
+      "key": "interestedProgram",
+      "layout": {
+        "row": "Row_1nqm4fg"
+      }
+    },
+    {
+      "label": "Saya setuju dengan Syarat dan Ketentuan Universitas Gunadarma",
+      "type": "checkbox",
+      "id": "agreeTerms",
+      "validate": {
+        "required": true,
+        "errorMessage": "Anda harus menyetujui syarat dan ketentuan untuk melanjutkan"
+      },
+      "key": "agreeTerms",
+      "layout": {
+        "row": "Row_0xqyaku"
+      }
+    }
+  ],
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.7.0",
+  "exporter": {
+    "name": "Camunda Modeler",
+    "version": "5.37.0"
+  },
+  "schemaVersion": 18,
+  "id": "form-pendaftaran",
+  "type": "default"
+}

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <property name="LOKASI_LOG" value="logs"/>
+    <property name="NAMA_FILE_LOG" value="pendaftaran-mahasiswa"/>
+
+    <!-- Clear existing log files on startup -->
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+    <!-- Pengaturan Output Konsol -->
+    <appender name="Konsol" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- Pengaturan File Log Umum -->
+    <appender name="LogUmum" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOKASI_LOG}/${NAMA_FILE_LOG}.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${LOKASI_LOG}/arsip/${NAMA_FILE_LOG}.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>1</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>10MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- Pengaturan File Log Kesalahan -->
+    <appender name="LogKesalahan" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOKASI_LOG}/kesalahan.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>ERROR</level>
+        </filter>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>${LOKASI_LOG}/arsip/kesalahan.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>1</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>10MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <!-- Pengaturan Khusus untuk Package Worker -->
+    <logger name="io.university.gunadarma.worker" level="DEBUG" additivity="false">
+        <appender-ref ref="Konsol"/>
+        <appender-ref ref="LogUmum"/>
+        <appender-ref ref="LogKesalahan"/>
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="Konsol"/>
+        <appender-ref ref="LogUmum"/>
+        <appender-ref ref="LogKesalahan"/>
+    </root>
+</configuration>
