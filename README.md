@@ -1,7 +1,7 @@
 # Pendaftaran Mahasiswa Asing Universitas Gunadarma
 
 <div align="center">
-    <img src="https://www.gunadarma.ac.id/logo.png" alt="Universitas Gunadarma Logo" width="200"/>
+    <img src="src/LogoGunadarma.jpg" alt="Universitas Gunadarma Logo" width="200"/>
 </div>
 
 <div align="center">
