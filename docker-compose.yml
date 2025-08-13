@@ -1,0 +1,81 @@
+version: "3.8"
+
+services:
+  # Aplikasi Utama
+  mahasiswa-asing-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mahasiswa-asing-app:dev
+    container_name: mahasiswa-asing-app
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=development
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
+    volumes:
+      - ./storage:/app/storage
+    depends_on:
+      - postgres
+      - camunda
+    networks:
+      - mahasiswa-asing-network
+
+  # Database PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: mahasiswa-asing-postgres
+    environment:
+      - POSTGRES_DB=mahasiswa_asing_db
+      - POSTGRES_USER=mahasiswa_user
+      - POSTGRES_PASSWORD=rahasia_database
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - mahasiswa-asing-network
+
+  # Camunda Zeebe
+  camunda:
+    image: camunda/zeebe:8.7.0
+    container_name: mahasiswa-asing-camunda
+    ports:
+      - "26500:26500"
+      - "8088:8088"
+    environment:
+      - ZEEBE_BROKER_NETWORK_HOST=0.0.0.0
+    volumes:
+      - camunda-data:/usr/local/zeebe/data
+    networks:
+      - mahasiswa-asing-network
+
+  # Prometheus Monitoring
+  prometheus:
+    image: prom/prometheus:v2.45.0
+    container_name: mahasiswa-asing-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - mahasiswa-asing-network
+
+  # Grafana Dashboard
+  grafana:
+    image: grafana/grafana:9.5.3
+    container_name: mahasiswa-asing-grafana
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    networks:
+      - mahasiswa-asing-network
+
+volumes:
+  postgres-data:
+  camunda-data:
+
+networks:
+  mahasiswa-asing-network:
+    driver: bridge

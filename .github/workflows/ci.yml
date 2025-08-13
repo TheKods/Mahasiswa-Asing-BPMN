@@ -35,10 +35,11 @@ jobs:
 
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
-        # Only attempt to upload if a token is available
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        # Prevent workflow failure if upload fails
+        with:
+          fail_ci_if_error: false
+          verbose: true
         continue-on-error: true
 
       - name: Security Scan

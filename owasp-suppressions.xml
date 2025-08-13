@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+    <suppress>
+        <notes>Contoh suppression untuk dependensi yang diketahui aman</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework.*$</packageUrl>
+        <cve>CVE-2020-XXXX</cve>
+    </suppress>
+    
+    <suppress>
+        <notes>Suppression untuk library yang sudah diperbaiki</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\..*$</packageUrl>
+        <vulnerabilityName>CVE-2021-YYYY</vulnerabilityName>
+    </suppress>
+</suppressions> 

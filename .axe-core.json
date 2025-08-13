@@ -1,0 +1,46 @@
+{
+  "rules": {
+    "color-contrast": {
+      "enabled": true,
+      "severity": "critical"
+    },
+    "landmark-one-main": {
+      "enabled": true,
+      "severity": "critical"
+    },
+    "page-has-heading-one": {
+      "enabled": true,
+      "severity": "critical"
+    },
+    "aria-allowed-attr": {
+      "enabled": true,
+      "severity": "critical"
+    },
+    "aria-required-attr": {
+      "enabled": true,
+      "severity": "critical"
+    },
+    "aria-valid-attr-value": {
+      "enabled": true,
+      "severity": "critical"
+    },
+    "label-title-only": {
+      "enabled": false
+    },
+    "link-name": {
+      "enabled": true,
+      "severity": "critical"
+    },
+    "image-alt": {
+      "enabled": true,
+      "severity": "critical"
+    }
+  },
+  "standards": {
+    "wcag": {
+      "level": "AA"
+    }
+  },
+  "reporter": "v2",
+  "allowedOrigins": ["localhost", "127.0.0.1"]
+}

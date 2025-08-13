@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Dashboard - Pendaftaran Mahasiswa Asing</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-3xl font-bold text-gray-800">Dashboard</h1>
+          <a
+            href="/logout"
+            class="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-600 transition"
+          >
+            Logout
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-blue-100 p-4 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4">Informasi Pengguna</h2>
+            <p>
+              <strong>Nama:</strong>
+              <span th:text="${name}">Nama Pengguna</span>
+            </p>
+            <p>
+              <strong>Email:</strong>
+              <span th:text="${email}">email@example.com</span>
+            </p>
+            <p>
+              <strong>Provider:</strong>
+              <span th:text="${provider}">Google</span>
+            </p>
+          </div>
+
+          <div class="bg-green-100 p-4 rounded-lg">
+            <h2 class="text-xl font-semibold mb-4">Aksi Tersedia</h2>
+            <ul class="space-y-2">
+              <li>
+                <a href="/pendaftaran" class="text-green-800 hover:underline">
+                  Mulai Pendaftaran
+                </a>
+              </li>
+              <li>
+                <a href="/status" class="text-green-800 hover:underline">
+                  Cek Status Pendaftaran
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-6">
+          <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Total Pendaftaran</h3>
+            <div id="totalPendaftaran" class="text-3xl font-bold">0</div>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow lg:col-span-2">
+            <h3 class="text-lg font-semibold mb-2">Pendaftaran per Bulan</h3>
+            <canvas id="perMonthChart" height="120"></canvas>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow lg:col-span-2">
+            <h3 class="text-lg font-semibold mb-2">Distribusi Status</h3>
+            <canvas id="statusChart" height="120"></canvas>
+          </div>
+          <div class="bg-white p-4 rounded-lg shadow">
+            <h3 class="text-lg font-semibold mb-2">Negara Asal (Top)</h3>
+            <canvas id="countryChart" height="120"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script>
+      async function loadStats() {
+        try {
+          const res = await fetch("/api/dashboard/stats", {
+            headers: { Accept: "application/json" },
+          });
+          const data = await res.json();
+
+          document.getElementById("totalPendaftaran").textContent =
+            data.total ?? 0;
+
+          // Per Month Chart
+          const months = Object.keys(data.perMonth || {}).sort();
+          const monthValues = months.map((k) => data.perMonth[k]);
+          new Chart(document.getElementById("perMonthChart"), {
+            type: "bar",
+            data: {
+              labels: months,
+              datasets: [
+                {
+                  label: "Pendaftaran",
+                  data: monthValues,
+                  backgroundColor: "rgba(59, 130, 246, 0.6)",
+                },
+              ],
+            },
+            options: { responsive: true, maintainAspectRatio: false },
+          });
+
+          // Status Chart
+          const statusLabels = Object.keys(data.byStatus || {});
+          const statusValues = statusLabels.map((k) => data.byStatus[k]);
+          new Chart(document.getElementById("statusChart"), {
+            type: "pie",
+            data: {
+              labels: statusLabels,
+              datasets: [
+                {
+                  data: statusValues,
+                  backgroundColor: ["#34D399", "#60A5FA", "#F87171", "#FBBF24"],
+                },
+              ],
+            },
+            options: { responsive: true, maintainAspectRatio: false },
+          });
+
+          // Country Chart (top 10)
+          const countryEntries = Object.entries(data.countries || {})
+            .sort((a, b) => b[1] - a[1])
+            .slice(0, 10);
+          const countryLabels = countryEntries.map((e) => e[0]);
+          const countryValues = countryEntries.map((e) => e[1]);
+          new Chart(document.getElementById("countryChart"), {
+            type: "bar",
+            data: {
+              labels: countryLabels,
+              datasets: [
+                {
+                  label: "Jumlah",
+                  data: countryValues,
+                  backgroundColor: "rgba(16, 185, 129, 0.6)",
+                },
+              ],
+            },
+            options: {
+              indexAxis: "y",
+              responsive: true,
+              maintainAspectRatio: false,
+            },
+          });
+        } catch (e) {
+          console.error("Gagal memuat statistik", e);
+        }
+      }
+      loadStats();
+    </script>
+  </body>
+</html>

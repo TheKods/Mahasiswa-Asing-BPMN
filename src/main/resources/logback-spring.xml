@@ -55,9 +55,14 @@
         <appender-ref ref="LogKesalahan"/>
     </logger>
 
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
+    </appender>
+
     <root level="INFO">
         <appender-ref ref="Konsol"/>
         <appender-ref ref="LogUmum"/>
         <appender-ref ref="LogKesalahan"/>
+        <appender-ref ref="STDOUT"/>
     </root>
 </configuration>
